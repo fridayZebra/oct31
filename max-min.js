@@ -79,27 +79,47 @@
 
 // console.log(repeat(goodBye,5));
 
+
+//Functions as arguments (2)
 // Return only names that begin with 'R'
-const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
+// const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
 
-const filteredNames = filter(myNames, function(name) {
-  // This is a "predicate function" - it's a function that only returns a boolean
-  return name[0] === 'R';
-});
+// const filteredNames = filter(myNames, function(name) {
+//   // This is a "predicate function" - it's a function that only returns a boolean
+//   return name[0] === 'R';
+// });
 
-console.log(filteredNames); // => ['Rich', 'Ray']
+// console.log(filteredNames); // => ['Rich', 'Ray']
 
-//TASK -- DEFINE YOUR FILTER FUNCTION BELOW:
+// //TASK -- DEFINE YOUR FILTER FUNCTION BELOW:
 
-function filter(arr, fn){
-  let newArr = [];
+// function filter(arr, fn){
+//   let newArr = [];
   
-  for (let i = 0; i < arr.length; i++) {
-    //console.log(fn);  
-    if (fn(arr[i]) === true) {
-      newArr.push(arr[i]);
-    } 
+//   for (let i = 0; i < arr.length; i++) {
+//     //console.log(fn);  
+//     if (fn(arr[i]) === true) {
+//       newArr.push(arr[i]);
+//     } 
+//   }
+//   return newArr;
+// }
+
+// Functions as return values
+
+function hazardWarningCreator(typeOfWarning) {
+  let warningCounter = 0;
+  return function(location){
+    warningCounter++;
+    console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
+    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
   }
-  return newArr;
- 
 }
+const rocksWarning = hazardWarningCreator('landslide');
+const floodWarning = hazardWarningCreator('Flood warning in cities');
+const heatWarning = hazardWarningCreator('Fire warning in woods');
+
+console.log(rocksWarning('Anaheim'));
+console.log(heatWarning('Virginia Beach'));
+console.log(rocksWarning('San Francisco'));
+console.log(floodWarning('Sebastapool'));
