@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 // // const numbers = [1,2,3,4,5,566,7,7,3,2];
 // // // Min-Max -----------------
 // // // function max(numbers) {
@@ -83,26 +83,23 @@
 const myNames = ['Rich', 'Joe', 'Bhaumik', 'Ray'];
 
 const filteredNames = filter(myNames, function(name) {
-    // This is a "predicate function" - it's a function that only returns a boolean
-    return name[0] === 'R';
+  // This is a "predicate function" - it's a function that only returns a boolean
+  return name[0] === 'R';
 });
 
-console.log(filteredNames) // => ['Rich', 'Ray']
+console.log(filteredNames); // => ['Rich', 'Ray']
 
-// TASK -- DEFINE YOUR FILTER FUNCTION BELOW:
+//TASK -- DEFINE YOUR FILTER FUNCTION BELOW:
 
 function filter(arr, fn){
   let newArr = [];
   
-  for(let i=0; i<arr.length; i++){
-    if(fn){
+  for (let i = 0; i < arr.length; i++) {
+    //console.log(fn);  
+    if (fn(arr[i]) === true) {
       newArr.push(arr[i]);
-    }
+    } 
   }
   return newArr;
+ 
 }
-console.log(filter(myNames, filteredNames));
-
-
-
-
