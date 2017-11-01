@@ -107,19 +107,67 @@
 
 // Functions as return values
 
-function hazardWarningCreator(typeOfWarning) {
-  let warningCounter = 0;
-  return function(location){
-    warningCounter++;
-    console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
-    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
-  }
-}
-const rocksWarning = hazardWarningCreator('landslide');
-const floodWarning = hazardWarningCreator('Flood warning in cities');
-const heatWarning = hazardWarningCreator('Fire warning in woods');
+// function hazardWarningCreator(typeOfWarning) {
+//   let warningCounter = 0;
+//   return function(location){
+//     warningCounter++;
+//     console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
+//     console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+//   }
+// }
+// const rocksWarning = hazardWarningCreator('landslide');
+// const floodWarning = hazardWarningCreator('Flood warning in cities');
+// const heatWarning = hazardWarningCreator('Fire warning in woods');
 
-console.log(rocksWarning('Anaheim'));
-console.log(heatWarning('Virginia Beach'));
-console.log(rocksWarning('San Francisco'));
-console.log(floodWarning('Sebastapool'));
+// console.log(rocksWarning('Anaheim'));
+// console.log(heatWarning('Virginia Beach'));
+// console.log(rocksWarning('San Francisco'));
+// console.log(floodWarning('Sebastapool'));
+
+let turtleMovements = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+
+let forwardAndLeftSteps = turtleMovements.filter(
+  function(movement){
+    return movement[0] >= 0 && movement[1] >= 0;
+  });
+
+console.log(forwardAndLeftSteps);
+
+
+let totalStepsArr = forwardAndLeftSteps.map(
+  function(steps){
+     let totalSteps = steps[0] + steps[1];
+     return totalSteps;
+  });
+console.log(totalStepsArr);
+
+
+let totalMovements = totalStepsArr.forEach(
+  function(movement){
+    console.log(movement);
+  });
+
+  // let boat = {
+  //   color: 'white',
+  //   length: 24,
+  //   engine: 'y150',
+  //   howFast: function(){
+  //     console.log(`I'm going x speed`);
+  //   }
+  // }
+
+  
+// Accessing properties of an object:
+// Object Destructuring
+const littleYacht = {
+    floorColor: "red",
+    maximumLbs: 1000,
+    inOperation: true,
+    christened: false,
+    hornSound: "Ride of the Walkeries"
+};
+
+const { floorColor, inOperation, hornSound } = littleYacht;
+console.log(floorColor);  // red
+console.log(inOperation); // true
+console.log(hornSound);   // Ride of the Walkeries
